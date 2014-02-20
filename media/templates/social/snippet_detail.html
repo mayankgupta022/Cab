@@ -1,0 +1,13 @@
+{% extends 'standard.htm' %}
+
+
+{% block content %}
+
+<b>{{object.title}}</b><br /><br />
+Description: {{object.description}}<br />
+{{object.highlighted_code}}<br /><br />
+Created by - {{object.author}} on {{object.pub_date}}
+{% if object.updated_date != object.pub_date %}, last updated on {{object.updated_date}}{% endif %}
+
+
+{% endblock %}
