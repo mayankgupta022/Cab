@@ -8,7 +8,7 @@ import datetime
 
 class Language(models.Model):
 	name = models.CharField(max_length=100)
-	slug = models.SlugField(unique=True)
+	lslug = models.SlugField(unique=True)
 	language_code = models.CharField(max_length=50)
 	mime_type = models.CharField(max_length=100)
 

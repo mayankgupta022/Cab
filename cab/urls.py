@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',  
      {'document_root': settings.MEDIA_ROOT}),
     (r'^snippets/', include('social.urls.snippets')),
+    (r'^languages/', include('social.urls.languages')),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^(?P<name>[-\w]+)/$', writeup, {}),
