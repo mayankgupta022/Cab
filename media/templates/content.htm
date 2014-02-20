@@ -1,0 +1,10 @@
+{% extends "standard.htm" %}
+
+{% block title %} {{ writeup.name }}{% endblock %}
+
+{% block content %}
+    {% autoescape off %}
+    <h3>{{ writeup.name }}</h3>
+    <p>{{ writeup.content }}</p>
+    {% endautoescape %}
+{% endblock %}

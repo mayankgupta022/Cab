@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CMS : {% block title %}{% endblock %}</title>
+
+<link rel="shortcut icon" href="favicon.ico"  />
+<link rel="stylesheet" type="text/css" media="screen" href="{{MEDIA_URL}}templates/css/base.css" />
+<script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="heading">
+    <div class="logo">
+    <a href="/">LOGO</a>
+    </div>
+    <div class="main">
+        <ul>
+        {% for menu in menus %}
+            {% if menu.menu.class_name = "main" %}
+                    {% if menu.link = "home" %}
+                         <li><a href="/">{{menu.name}}</a></li>
+                    {% else %}
+                        <li><a href="/{{menu.link}}">{{menu.name}}</a></li>
+                    {% endif %}
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="side">
+    <ul>
+    {% for menu in menus %}
+        {% if menu.menu.class_name = "side" %}
+                {% if menu.link = "home" %}
+                     <li><a href="/">{{menu.name}}</a></li>
+                {% else %}
+                    <li><a href="/{{menu.link}}">{{menu.name}}</a></li>
+                {% endif %}
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+
+<div class="textarea">
+    {% autoescape off%}
+    {% block content %}
+    {% endblock %}
+    {% endautoescape %}
+</div>
+ 
+<div class="footer">
+	&copy; Copyright 2013 | Mayank Gupta
+</div>
+</body>
+
+</html>
